@@ -119,6 +119,53 @@
     font-size: 13px;
   }
 }
-.year,.month,.day{
+
+.Wrapper
+
+.year,.month,.day {
   font-size: 30px;
- }
+}
+
+.Single{
+  display: block;
+
+  &__container {
+    box-sizing: inherit;
+
+    &__header {
+      height: 128px;
+      border-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #666666;
+
+      h1 {
+        height: 50px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;;
+        background-color: #888888;
+      }
+    }
+    &__main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #eeeeee;
+
+      &__head {
+        height: 100px;
+        width: 100%;
+        background-color: #777777;
+
+        &__content {
+
+        }
+      }
+    }
+  }
+}
+

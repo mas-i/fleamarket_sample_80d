@@ -1,30 +1,67 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nick_name
-    %br/
-    = f.text_field :nick_name, autofocus: true
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .FormField__label--normal
-    = f.label :birth_day
-  .FormField__input--normal
-    = raw sprintf(f.date_select(:birth_day,{ start_year: Date.today.year, end_year: Date.today.year-120,prompt:"--", use_month_numbers: true, with_css_classes: true,discard_minute:true,date_separator: '%s', datetime_separator: '%s'}, {required: true}), '<div class="input-field-multiple__separate-text">年</div>', '<div class="input-field-multiple__separate-text">月</div>') +'<div class="input-field-multiple__separate-text">日</div>'
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.Single
+  .Single__container
+    .Single__container__header
+      %h1 ロゴ
+    .Single__container__main
+      .Single__container__main__head
+      .Single__container__main__head__inner
+      .Single__container__main__head__inner__content
+        %h2 Sign up
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .form-group
+            = f.label :nick_name
+            %br/
+            = f.text_field :nick_name, autofocus: true
+          .form-group
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email"
+          .form-group
+            = f.label :password
+            - if @minimum_password_length
+              %em
+                (#{@minimum_password_length} characters minimum)
+            %br/
+            = f.password_field :password, autocomplete: "new-password"
+          .form-group
+            = f.label :password_confirmation
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password"
+          .formField__label--normal
+            = f.label :birth_day
+          .formField__label--normal
+            = raw sprintf(f.date_select(:birth_day,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: Date.new(1989, 1, 1),date_separator: '%s'),'年 ', '月 ') + '日'
+          .actions
+            = f.submit "Sign up"
+        = render "devise/shared/links"
 
+-# %h2 Sign up
+-# = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#   = render "devise/shared/error_messages", resource: resource
+-#   .field
+-#     = f.label :nick_name
+-#     %br/
+-#     = f.text_field :nick_name, autofocus: true
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     - if @minimum_password_length
+-#       %em
+-#         (#{@minimum_password_length} characters minimum)
+-#     %br/
+-#     = f.password_field :password, autocomplete: "new-password"
+-#   .field
+-#     = f.label :password_confirmation
+-#     %br/
+-#     = f.password_field :password_confirmation, autocomplete: "new-password"
+-#   .FormField__label--normal
+-#     = f.label :birth_day
+-#   .FormField__input--normal
+-#     = raw sprintf(f.date_select(:birth_day,{ start_year: Date.today.year, end_year: Date.today.year-120,prompt:"--", use_month_numbers: true, with_css_classes: true,discard_minute:true,date_separator: '%s', datetime_separator: '%s'}, {required: true}), '<div class="input-field-multiple__separate-text">年</div>', '<div class="input-field-multiple__separate-text">月</div>') +'<div class="input-field-multiple__separate-text">日</div>'
+-#   .actions
+-#     = f.submit "Sign up"
+-# = render "devise/shared/links"
