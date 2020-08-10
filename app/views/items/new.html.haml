@@ -1,0 +1,212 @@
+= form_with model:@item, local:true do |f|
+  
+  -# エラーメッセージ
+  -# - if @item.errors.any?
+  -#   .error_explanation
+  -#     .error_explanation__inner
+  -#       %h2.error_explanation__inner__h2
+  -#         = pluralize(@item.errors.count, "個")
+  -#         のエラーが発生しています。
+        
+  -#       %ul
+  -#         - @item.errors.full_messages.each do |message|
+  -#           %li 
+  -#             = message
+
+  -# = f.hidden_field :trading_status, value: "販売中"
+  -# = f.hidden_field :user_id, value: current_user.id
+  .upload-box
+    .upload-box__head
+      %h3.upload-box__head__h3 出品画像
+      %span.upload-box__head__span 必須
+    %p.discription 最大10枚までアップロードできます
+
+    .post__drop__box__container
+      .label-content
+        %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
+          = icon('fas', 'camera', class: 'label-content__icon')
+          %pre.label-box__text-visible クリックしてファイルをアップロード
+      .hidden-content
+        = f.fields_for :images do |i|
+          = i.file_field :image, class: "hidden-field"
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][5][image]", id: "item_images_attributes_5_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][6][image]", id: "item_images_attributes_6_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][7][image]", id: "item_images_attributes_7_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][8][image]", id: "item_images_attributes_8_image" }
+          %input{class:"hidden-field", type: "file", name: "item[images_attributes][9][image]", id: "item_images_attributes_9_image" }
+  %hr.content-sale--hr
+  .content-sale__main__box__form
+    .content-sale__main__box__form__item
+      .content-sale__main__box__form__inner__title
+        %label.content-sale__main__box__form__inner__title__label
+          商品名
+        %span.content-sale__main__box__form__inner__title__span
+          必須
+      .content-sale__main__box__form__item__box
+        .content-sale__main__box__form__item__box__input
+          = f.text_field :name, placeholder:"商品名（必須 40文字以内)",class: "input"
+    .content-sale__main__box__form__intro
+      .content-sale__main__box__form__inner__title
+        %label.content-sale__main__box__form__inner__title__label
+          商品の説明
+        %span.content-sale__main__box__form__inner__title__span
+          必須
+      .content-sale__main__box__form__inner__intro
+        = f.text_area :description, class: "items-new-form-area__default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "7", id: "input-text"
+        .content-sale__main__box__form__inner__intro__bottom
+          %p{id: "counter"}
+  %hr.content-sale--hr
+  .content-sale__main__box__form
+    %p
+      商品の詳細
+    .item-dteil
+      .item-detail__inner
+        .item-detail__inner__name
+          %label
+            カテゴリー
+          %span
+            必須
+        -# .item-detail__inner__box
+        -#   .item-detail__inner__box__select
+        -#     = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+        -#     .exhibitionPage__main__contents__detail__category__choose
+            -# ↓元々書いてあったコードをコメントアウトしました。確認取れ次第削除する
+            -# = f.collection_select :category_id, Category.all.limit(13), :id, :name,{prompt:"---"},{class:"", id: ""}
+    .item-detail
+      .item-detail__inner
+        .item-detail__inner__name
+          %label.item-detail__inner__name__down
+            ブランド
+          %span.optional
+            任意
+        -# .item-detail__inner__brand
+        -#   .item-detail__inner__brand__inner
+        -#     = f.collection_select :brand_id, Brand.all.limit(13), :id, :name,{prompt:"---"},{class:"", id: ""}
+    .item-detail
+      .item-detail__inner
+        .item-detail__inner__name    
+          %label.item-detail__inner__name__down
+            商品の状態
+          %span.require
+            必須
+        .item-detail__inner__box
+          .item-detail__inner__box__select
+            -# = f.select :status, Item.statuses.keys,{prompt:"---"}
+  %hr.content-sale--hr
+  .content-sale__main__box__form
+    %p
+      配送料について
+      = link_to "#" do
+        = icon('far', 'question-circle', class: 'question')
+    .item-dteil
+      .item-detail__inner
+        .item-detail__inner__name
+          %label
+            配送料の負担
+          %span
+            必須
+        .item-detail__inner__box
+          .item-detail__inner__box__select
+            -# = f.select :delivery_burden, Item.delivery_burdens.keys,{prompt:"---"}
+    .item-dteil
+      .item-detail__inner
+        .item-detail__inner__name
+          %label.item-detail__inner__name__down
+            配送元の地域
+          %span.require
+            必須
+        .item-detail__inner__box
+          .item-detail__inner__box__select
+            -# = f.select :delivery_area, Address.prefectures.keys,{prompt:"---"}
+
+    .item-dteil
+      .item-detail__inner
+        .item-detail__inner__name
+          %label.item-detail__inner__name__down
+            発送までの日数
+          %span.require
+            必須
+        .item-detail__inner__box
+          .item-detail__inner__box__select
+            -# = f.select :delivery_days, Item.delivery_days.keys,{prompt:"---"}
+
+  %hr.content-sale--hr
+  .content-sale__main__box__form
+    %p
+      価格（¥300〜9,999,999）
+      = link_to "#" do
+        = icon('far', 'question-circle', class: 'question')
+    .price
+      .price__box
+        .price__box__name
+          .price__box__name__inner
+            %label
+              販売価格
+            %span
+              必須
+        %span
+          ¥
+        .price__box__input
+          .price__box__input__inner
+            = f.number_field :price, min:300, max:9999999, class: "input", id: "sell-price", placeholder: "例）300（半角）", value: ""
+      .price__box__fee
+        .price__box__fee__inner
+          .price__box__fee__inner__title
+            販売手数料（１０％）
+        %span
+          #furima_fee
+    %hr.content-sale--hr      
+    .price__box
+      .price__box__revenue
+        販売利益
+      %span
+        #revenue
+  .btn
+    =f.submit "出品する",class:"btn__listing"
+
+    =link_to "もどる",items_path
+  .warning
+    %p
+      禁止されている
+    = link_to "#" do
+      行為
+    %p
+      および
+    = link_to "#" do
+      出品物
+    %p
+      を必ずご確認ください。
+    = link_to "#" do
+      偽ブランド品
+    %p
+      や
+    = link_to "#" do
+      盗品物
+    %p
+      などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
+    = link_to "#" do
+      加盟店規約
+    %p
+      に同意したことになります。
+
+      .login_footer-main
+  %ul.login_footer-main__toc
+    %li.login_footer-main__toc__content
+      =link_to "#" do
+        プライバシーポリシー
+    %li.login_footer-main__toc__content
+      =link_to "#" do
+        フリマ利用規約
+    %li.login_footer-main__toc__content
+      =link_to "#" do
+        特定取引に関する表記
+      
+  .login_footer-main__logo
+    =link_to "#" do
+      -# = image_tag "logo.png", alt: "ロゴ"
+  %p
+    © FURIMA           

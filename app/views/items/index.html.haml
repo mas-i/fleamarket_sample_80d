@@ -5,3 +5,17 @@
   = render 'footer'
   = render 'camera-icon'
   
+%h1 Items#index
+%p Find me in app/views/items/index.html.erb
+
+- if user_signed_in?
+  %li
+    = link_to 'マイページ', '#', method: :get, class: 'Button-show'
+  %li
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
+- else
+  %li
+    = link_to 'ログイン', new_user_session_path, method: :get, class: 'Button2'
+  %li
+    = link_to '新規登録', new_user_registration_path, method: :get, class: 'Button2'
+
