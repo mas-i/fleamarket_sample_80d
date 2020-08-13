@@ -36,6 +36,7 @@ $(document).ready(function(){
       // 選択された親カテゴリーのidを取得
       var parent_category_id = document.getElementById
       ('parent_category').value; 
+      console.log(parent_category_id)
       if (parent_category_id != "---"){ 
         $.ajax({
           url: '/items/category/get_category_children',
@@ -43,7 +44,8 @@ $(document).ready(function(){
           data: { parent_id: parent_category_id },
           dataType: 'json'
         })
-        .done(function(children){         
+        .done(function(children){    
+          console.log(children)     
           // 親カテゴリー削除された時、子・孫カテゴリーを削除する。
           $('#children_wrapper').remove(); 
           $('#grandchildren_wrapper').remove();
