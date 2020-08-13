@@ -73,7 +73,7 @@ a{
         display: flex;  
         &__brand{
           &__li{
-            padding: 0 0 0 16px;
+            padding: 0 0 0 50px;
           }
         }   
       }
@@ -81,9 +81,15 @@ a{
         position: relative;
         display: flex;
       }
+
       &__right{
         margin-left: auto;
         display: flex;
+        &__new{
+          &__li{
+            padding: 0 0 0 25px;
+          }
+        }
       }
       &__right ul{
         margin-left: auto;
@@ -99,7 +105,7 @@ a{
 .header__contents__nav-list__right__new__li{
   line-height: 38px;
 }
-.header__contents__nav-list__right__new__li{
+.header__contents__nav-list__right__login__li{
   padding: 0 0 0 16px;
 }
 

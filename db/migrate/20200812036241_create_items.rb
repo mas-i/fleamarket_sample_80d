@@ -7,11 +7,11 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name, null:false, index: true
       t.integer :price, null: false
       t.text :explain, null: false
-      t.string :status, null:false
-      t.integer :postage, null:false
-      t.string :prefecture, null:false
-      t.string :shipping_date, null:false
-      t.string :sale_status, null:false, default: true
+      t.string :status, null: false
+      t.integer :postage, null: false
+      t.string :prefecture, null: false
+      t.string :shipping_date, null: false
+      t.string :sale_status, null: false, default: true
       t.timestamps
     end
   end

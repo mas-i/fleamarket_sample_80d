@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_080251) do
+ActiveRecord::Schema.define(version: 2020_08_12_037815) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -27,12 +27,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_080251) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
-  end
-
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -78,7 +72,6 @@ ActiveRecord::Schema.define(version: 2020_08_11_080251) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "birth_day"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["nick_name"], name: "index_users_on_nick_name", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

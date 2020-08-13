@@ -90,18 +90,18 @@
   %h2.main__picture__header ピックアップカテゴリー
   .main__picture__box
     .main__picture__box__head
-      =link_to "#" do
+      =link_to "" do
         %h3 新規投稿商品
     .main__picture__box__lists
       .main__picture__box__lists__list
-        -# - @items.each do |item|
+        - @items.each do |item|
           .top-main__contents__item-box__image
-            -# - item.images.each_with_index do |image, index|リンク先がないエラー解消のため
+            - item.imgs.each_with_index do |image, index|リンク先がないエラー解消のため
               - if index == 0
                 = link_to image_tag("#{image.image.url}", width: '213', height: '213', alt: "アイテム個別画像"), item_path(item.id), class: "top-main__contents__item-box__image__img"
                   -if item.buyer_id.present? 
                   .item__box__picture__sold
-                    .item__box__picture__sold__inner SOLD OUTリンク先がないエラー解消のため
+                    .item__box__picture__sold__inner SOLD OUT
                 - break
             .main__picture__box__lists__list__productList--body
               %h3.name
@@ -114,21 +114,21 @@
                 0
               %P (税込)
 .main__picture
-  %h2.main__picture__header ピックアップカテゴリー
+  %h2.main__picture__header ピックアップブランド
   .main__picture__box
     .main__picture__box__head
-      =link_to "#" do
+      =link_to "item_imgs" do
         %h3 アーカイバ
     .main__picture__box__lists
       .main__picture__box__lists__list
-        -# - @ladies.each do |item|リンク先がないエラー解消のため
+        - @ladies.each do |item|
           .top-main__contents__item-box__image
-            -# - item.images.each_with_index do |image, index|
+            - item.images.each_with_index do |image, index|
               - if index == 0
-                -# = link_to image_tag("#{image.image.url}", width: '213', height: '213', alt: "アイテム個別画像"), item_path(item.id), class: "top-main__contents__item-box__image__img"リンク先がないエラー解消のため
-                -#   -if item.buyer_id.present? リンク先がないエラー解消のため
+                -= link_to image_tag("#{image.image.url}", width: '213', height: '213', alt: "アイテム個別画像"), item_path(item.id), class: "top-main__contents__item-box__image__img"リンク先がないエラー解消のため
+                -if item.buyer_id.present? 
                   .item__box__picture__sold
-                    .item__box__picture__sold__inner SOLD OUTリンク先がないエラー解消のため
+                    .item__box__picture__sold__inner SOLD OUT
                 - break
             .main__picture__box__lists__list__productList--body
               %h3.name
@@ -138,8 +138,8 @@
                 %li
                   = item.price
                 %i.fa.fa-star
-                0リンク先がないエラー解消のため
-              %P (税込)リンク先がないエラー解消のため
+                0
+              %P (税込)
 
 -# .bannerリンク先がないエラー解消のため
 -#   .banner__inner
