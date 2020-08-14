@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :move_to_index, only: [:show]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.all
@@ -41,6 +41,13 @@ class ItemsController < ApplicationController
   end
 
   def update
+
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+
   end
 
   def destory
