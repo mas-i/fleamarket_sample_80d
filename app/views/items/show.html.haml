@@ -22,7 +22,7 @@
             %th
               出品者
             %td
-              = link_to @item.user.nick_name, "#"
+              = link_to @item.user.nickname, "#"
               %div.evaluation
                 %div
                   %i.fas.fa-laugh
@@ -144,7 +144,7 @@
   .other-items
     .login-user
       %h2.title
-        = link_to "#{@item.user.nick_name}さんのその他の出品", ""
+        = link_to "#{@item.user.nickname}さんのその他の出品", ""
       .content
         .item-box
           %figure.image

@@ -7,10 +7,10 @@
         = render "devise/shared/error_messages", resource: resource
         .form-container
           .form-group
-            = f.label :nick_name, "ニックネーム"
+            = f.label :nickname, "ニックネーム"
             %span.form-require 必須
             %br/
-            = f.text_field :nick_name, autofocus: true, placeholder: "例) 飯田っち"
+            = f.text_field :nickname, autofocus: true, placeholder: "例) 飯田っち"
           .form-group
             = f.label :email,"メールアドレス" 
             %span.form-require 必須
@@ -43,6 +43,9 @@
               %br/
             .formField__label--normal
               = raw sprintf(f.date_select(:birth_day,use_month_numbers: true,start_year: 1930,end_year: (Time.now.year - 18),default: Date.new(1989, 1, 1),date_separator: '%s'),'年 ', '月 ') + '日'
+            .form-sns
+              = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+              = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
           .actions
             = f.submit "次へ進む"
         = render "devise/shared/links"

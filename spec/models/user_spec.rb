@@ -6,9 +6,9 @@ require 'rails_helper'
         expect(user).to be_valid
       end
       it "nameがない場合は登録できないこと" do
-        user = build(:user, nick_name: "" )
+        user = build(:user, nickname: "" )
         user.valid?
-        expect(user.errors[:nick_name]).to include("を入力してください")
+        expect(user.errors[:nickname]).to include("を入力してください")
       end
       it "emailがない場合は登録できないこと" do
         user = build(:user, email: nil)
@@ -27,9 +27,9 @@ require 'rails_helper'
       end
       it "重複したnameが存在する場合は登録できない" do
         user = create(:user)
-        another_user = build(:user, nick_name: user.nick_name)
+        another_user = build(:user, nickname: user.nickname)
         another_user.valid?
-        expect(another_user.errors[:nick_name]).to include("はすでに存在します")
+        expect(another_user.errors[:nickname]).to include("はすでに存在します")
       end
       it "emailに@とドメインが存在する場合は登録できること " do
         user = create(:user)
