@@ -38,6 +38,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @grandchild = @item.category
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
   def update
@@ -51,12 +54,13 @@ class ItemsController < ApplicationController
   def destory
   end
 
+
   private
 
   def item_params
     params.require(:item).permit(
     :name, :explain, :price, :status, 
-    :postage, :prefecture,
+    :postage, :prefecture, :brand,
     :shipping_date, :category_id, 
     item_imgs_attributes: [:image, :_destroy, :id]).merge(:user_id => current_user.id)
   end

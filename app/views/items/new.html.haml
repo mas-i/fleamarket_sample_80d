@@ -33,18 +33,20 @@
         = f.fields_for :item_imgs do |image|
           %label
             .js-file_group{"data-index": "#{image.index}"}
-              = image.file_field :image, class: 'js-file'
+              = image.file_field :image, class: 'js-file Hidden'
               = icon("fas", "camera fa-lg" )
-              %br/
+              %br
+              ここを押して画像を選択してね！
+              %br
               %span.js-remove 削除
           - if @item.persisted?
             = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @item.persisted?
-            %label
-              .js-file_group{"data-index": "#{@item.item_imgs.count}"}
-                = icon("fas", "camera fa-lg" )
-                = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
-                .js-remove 削除
+          -# - if @item.persisted?
+          -#   %label
+          -#     .js-file_group{"data-index": "#{@item.item_imgs.count}"}
+          -#       = file_field_tag :src, name: "item[item_imgs_attributes][#{@item.item_imgs.count}][src]", class: 'js-file'
+          -#       = icon("fas", "camera fa-lg" )
+          -#       .js-remove 削除
 
       %hr.content-sale--hr
       .content-sale__main__box__form
@@ -94,7 +96,7 @@
                 任意
             .item-detail__inner__brand
               .item-detail__inner__brand__inner
-                = f.text_field :brand, placeholder:"例）シャネル　※現段階では入力出来ません。",class: "select", disabled: "disable"
+                = f.text_field :brand, placeholder:"例）シャネル　※現段階では入力出来ません。",class: "select"
         .item-detail
           .item-detail__inner
             .item-detail__inner__name

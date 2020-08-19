@@ -668,10 +668,13 @@
       }
     }
     #image-box {
-      #previews {
-        .js-file_group {
-        }
-      }
+      background-color: gray;
+      border: 1px dashed black;
+      text-align: center;
     }
   }
+}
+
+.Hidden {
+  display: none;
 }
