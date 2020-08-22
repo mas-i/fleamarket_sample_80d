@@ -262,6 +262,10 @@ $default-font-black: #333333;
           border-color: #05B0B4 transparent;
         }
       }
+      .new_user {
+        display: flex;
+        justify-content: space-around;
+      }
     }
     &__purchase-screen-button{
       display: block;

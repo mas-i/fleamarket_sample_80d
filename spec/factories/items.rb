@@ -12,7 +12,7 @@ FactoryBot.define do
     shipping_date {1}
     category       {FactoryBot.build(:user).id}
     trait :with_item_img do
-     after(:build) { |item| item.item_imgs << build_list(:item_img, 3)}
+      after(:build) { |item| item.item_imgs << build_list(:item_img, 3)}
     end
   end
 end

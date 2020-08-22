@@ -45,15 +45,15 @@
       %P.main__descriptions__lists__list__sentence
         最大3%でお得に出品&購入！
 
-.main__contentsdl
+.main__content
   .main__contentsdl__title
-    %h2.main__contentsdl__text
+    %h2.main__content__text
       会員数日本一位
-    %P.main__contentsdl__description
+    %P.main__content__description
       FURIMAは、フリマアプリで最も人気。<br>
       出品・購入回数も業界最多です！<br>
       ほしかったあの商品に出会えるかもしれません。
-    .main__contentsdl__btn
+    .main__content__btn
       =link_to  "#", class: "abtn" do
         =image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
       =link_to  "#", class: "gbtn" do
@@ -93,7 +93,7 @@
             - item.item_imgs.each_with_index do |image, index|
               - if index == 0
                 = link_to item_path(item.id),class: "top-main__contents__item-box__image__img" do
-                  = image_tag("#{image.image.url}", width: '213', height: '213', alt: "アイテム個別画像")
+                  = image_tag(image.image.url, width: '213', height: '213', alt: "アイテム個別画像")
                   -# -if item.buyer_id.present? buyer_idないためエラー防止
                 -# .item__box__picture__sold
                 -#   .item__box__picture__sold__inner SOLD OUT
@@ -109,11 +109,11 @@
                 0
               %P (税込)
 .main__picture
-  %h2.main__picture__header ピックアップブランド
+  %h2.main__picture__header ピックアップカテゴリー
   .main__picture__box
     .main__picture__box__head
       =link_to item_path(@items) do
-        %h3 アーカイバ
+        %h3 アーカイブ
     .main__picture__box__lists
       .main__picture__box__lists__list
         - @items.each do |item|
@@ -121,8 +121,8 @@
             - item.item_imgs.each_with_index do |image, index|
               - if index == 0
                 = link_to item_path(item.id),class: "top-main__contents__item-box__image__img" do
-                  = image_tag("#{image.image.url}", width: '213', height: '213', alt: "アイテム個別画像")
-                  -# -if item.buyer_id.present? 　　buyer_idないためエラー防止
+                  = image_tag(image.image.url, width: '213', height: '213', alt: "アイテム個別画像")
+                  -# -if item.buyer_id.present? buyer_idないためエラー防止
                 -# .item__box__picture__sold
                 -#   .item__box__picture__sold__inner SOLD OUT
                 - break
@@ -136,3 +136,12 @@
                 %i.fa.fa-star
                 0
               %P (税込)
+.banner
+  .inner
+    %h2.inner__title だれでもかんたん、人生を変えるフリマアプリ
+    %p.inner__text 今すぐ無料ダウンロード！
+    .main__content__btn
+      =link_to  "#", class: "abtn" do
+        =image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
+      =link_to  "#", class: "gbtn" do
+        =image_tag "google-play.png"

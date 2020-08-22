@@ -11,7 +11,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :postage, null: false
       t.integer :prefecture, null: false
       t.integer :shipping_date, null: false
-      t.integer :sale_status, null: false, default: true
+      t.integer :sale_status, default: ""
       t.timestamps
     end
   end

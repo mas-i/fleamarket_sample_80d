@@ -1,0 +1,21 @@
+
+%nav.nav-detail
+  %ul.nav-detail__ul
+    .nav-detail__ul__li
+      %li
+        .nav-detail__ul__li__link
+          =link_to root_path do
+            FURIMA
+          %i.icon-arrow-right >
+    .nav-detail__ul__li
+      %li
+        .nav-detail__ul__li__link
+          =link_to user_path(current_user[:id]) do
+            マイページ
+          %i.icon-arrow-right >  
+    .nav-detail__ul__li
+      %li
+        .nav-detail__ul__li__link
+          =link_to "#" do
+            お知らせ
+

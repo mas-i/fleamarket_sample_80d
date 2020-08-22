@@ -1,0 +1,37 @@
+*{
+  box-sizing: border-box;
+}
+.body{
+  display:block;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+.purchase__btn{
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  height: 120px;
+
+  &__text{
+    color: #fff;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  }
+  img{
+    width: 60%;
+  }
+}
+
+.top-main__contents__item-box__image{
+  background: white;
+  margin: 10px;
+  }

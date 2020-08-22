@@ -9,49 +9,62 @@
         購入内容の確認
       .buy-content__main
         .buy-image
-          =image_tag("桜島.jpeg")
+          = image_tag "#{@item.item_imgs[0].image.url}", size: '64x64', class: 'buydetails-contet__image'
         .buy-details
           .buy-details__item-name
-            %span 商品名 : 桜島
+            = @item.name
           .buy-details__item-price
-            ¥
-            %span.main__shopping-free 10,000
+            %span.main__shopping-free 
+            (税込) 送料込み
+            = "¥#{@item.price.to_s}"
 
     .price
       .price__left
-        お支払い金額
+        支払い金額
       .price__right
-        ¥
-        %span.price__shopping-free 10,000
-            
+        %span.price__shopping-free
+        = "¥#{@item.price.to_s}"
     .user-info
       .user-info__inner
-        お支払い方法
-      .inner-credit
-        .inner-credit__brand
-          %figure
-            =image_tag("visaカード.png")
-        .card
-          .card__title
-            クレジットカード
-          .card__number
-            1111 1111 1111 
-          .card__limit
-            有効期限
-          .card__date
-            11 / 21
+        支払い方法
+      .user-info__change
+        = link_to "変更する","#"
+    
+    .card
+      .card__title
+        クレジットカード
+      .card__limit
+        - if @default_card_information.blank?
+          %br /
+        - else
+          = "**** **** **** " + "#{@default_card_information.last4}"
+          %br
+          - exp_month = @default_card_information.exp_month.to_s
+          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+          = "有効期限 " + exp_month + " / " + exp_year
+          %br
+    .inner-credit
+      .inner-credit__brand
+        %figure
+          =image_tag("visaカード.png")
 
     .adress
       .adress__post
         配送先
-      .adress__info
-        住所 111-2222
-        %p 東京都 千代田区 丸の内 1-1-1
-        
-      .adress__name
-        %p 氏名  
-        %p 田中 太郎 様
+      .adress__change
+      = link_to "変更する", "#"
+    .adress__info
+      .adress__info__address
+      = current_user.address.postal_code
+      .adress__info__address
+      = current_user.address.prefecture
+      = current_user.address.city
+      = current_user.address.address
+      .adress__info__name
+      = current_user.address.first_name
+      = current_user.address.last_name
 
     .purchase
       .submit
-      %input{type: "submit", value: "購入する", class: "buy-button"}/
+      = form_tag(action: :pay, method: :post) do
+        %button.buy-button{type:"submit"} 購入する

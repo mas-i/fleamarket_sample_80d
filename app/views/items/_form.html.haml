@@ -74,7 +74,8 @@
             必須
         .item-detail__inner__box
           .item-detail__inner__box__select
-            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {id: 'parent_category'}
+            -# ifでnewとeditの条件分岐パスで、newだと１つそれ意外だとフォームが３つになるように。Category.where(ancestry: nil)を変更コントローラーに沿って。
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {name: "item[hoge]", id: 'parent_category'}
             .exhibitionPage__main__contents__detail__category__choose
 
     .item-detail

@@ -1,0 +1,1 @@
+Webpacker::Compiler.env["PAYJP_KEY"] = Rails.application.credentials[:payjp][:PAYJP_KEY]

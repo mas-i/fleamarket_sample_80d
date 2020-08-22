@@ -1,0 +1,60 @@
+.header
+  .header__contents
+    .header__contents__content
+      %h1.header__contents__content__box
+        =link_to root_path do
+          =image_tag "logo.png",alt: "ロゴ"
+      .header__contents__content__search-box
+        %form
+          %input.header__contents__content__search-box__input{name: "",:placeholder => "キーワードから探す", :type =>"", :value => ""}/
+          %button{type: "submit"}
+            .header__contents__content__search-box__icon
+              =image_tag "icon-search 1.png",alt: "ロゴ"
+
+    .header__contents__nav-list
+      .header__contents__nav-list__left
+        %ul
+          .header__contents__nav-list__left__category
+            %li.header__contents__nav-list__left__category__li
+              =link_to category_get_category_children_items_path(@items), class: "categories" do
+                カテゴリー
+          .header__contents__nav-list__left__brand
+            %li.header__contents__nav-list__left__brand__li
+              =link_to "#" do
+                ブランド
+      .header__contents__nav-list__right
+        %ul
+          .header__contents__nav-list__right__topic
+            .header__contents__nav-list__right__topic__li
+              =link_to "#" do
+                お知らせ
+          .header__contents__nav-list__right__necessary     
+            .header__contents__nav-list__right__necessary__li
+              =link_to "#" do
+                やることリスト
+
+          .header__contents__nav-list__right__login
+        -if user_signed_in?
+          .header__contents__nav-list__right__login
+            .header__contents__nav-list__right__login__li
+              =link_to destroy_user_session_path, method: "DELETE" do
+                ログアウト
+
+          .header__contens__nav-list__right__new
+            .header__contents__nav-list__right__new__li
+              =link_to user_path(current_user[:id]) do
+                マイページ     
+
+        -else
+          .header__contents__nav-list__right__login
+            %li.header__contents__nav-list__right__login__li
+              =link_to new_user_session_path do
+                ログイン
+
+          .header__contens__nav-list__right__new
+            %li.header__contents__nav-list__right__new__li
+              =link_to new_user_registration_path, method: :get do
+                新規会員登録
+
+
+

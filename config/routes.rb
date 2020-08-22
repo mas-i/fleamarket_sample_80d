@@ -7,15 +7,42 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+  
+  root 'items#index'
 
-  resources :items do
-    # resources :comments 準備のみ
+
+  # resources :users, only: [:edit, :update]
+  resources :cards, only: [:new, :show, :create, :destroy] do
+
+    resources :items do
+      # resources :comments 準備のみ
+      #Ajaxで動くアクションのルートを作成
+      collection do
+        post 'pay', to: 'cards#pay'
+        # post 'purchase', to: 'items#purchase'
+      end
+    end
+  end
+
+  resources :items
     #Ajaxで動くアクションのルートを作成
+  resources :items, only: [:new, :show, :create, :edit, :update, :destroy] do
+
     collection do
       get 'category/get_category_children', to: 'items#get_category_children', defaults: { format: 'json' }
       get 'category/get_category_grandchildren', to: 'items#get_category_grandchildren', defaults: { format: 'json' }
     end
+    
+    resources :buyers, only: [:index] do
+      collection do
+        get 'done', to: 'buyers#done'
+        post 'pay', to: 'buyers#pay'
+      end
+    end
   end
 
-  root "items#index"
+  resources :users, only: [:show]
+
+
+  # root "items#index"
 end

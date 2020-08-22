@@ -1,0 +1,212 @@
+// _header.scss
+
+*{
+  box-sizing: border-box;
+}
+.body{
+  display:block;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.header{
+  padding: 0 60px;
+  &__contents{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__content{
+      position: relative;
+      display: flex;
+      align-items: center;
+      &__box{
+        padding-bottom: 10px;
+        margin-right: 30px;
+      }
+      &__box a{
+        width: 140px;
+        display: block;
+      }
+      &__box img{
+        width: 100%;
+        vertical-align: bottom;
+      }
+      &__search-box{
+        margin-left: auto;
+        width: 100%;
+        // display: flex;
+        form{
+          width: 100%;
+          margin-bottom: 5px;
+          display: flex;
+        }
+        button{
+          width:36px ;
+          border:0;
+          padding:8px;
+          background-color: #3CCACE;
+          cursor: pointer;
+        }
+        &__input{
+          width: calc(100% - 26px);
+          height: 36px;
+          padding: 0 0 0 5px;
+
+        }
+        &__icon img{
+          width: 100%;
+          vertical-align: bottom;      
+        }
+      }
+    }
+
+    &__nav-list{
+      font-size: 14px;
+      display: flex;
+      padding-bottom: 10px;
+      &__left{
+        position: relative;
+        display: flex;  
+        &__brand{
+          &__li{
+            padding: 0 0 0 16px;
+          }
+        }   
+      }
+      &__left ul{
+        position: relative;
+        display: flex;
+      }
+      &__right{
+        margin-left: auto;
+        display: flex;
+      }
+      &__right ul{
+        margin-left: auto;
+        display: flex;
+      }
+    }
+  }
+}
+
+.header__contents__nav-list__left__category__li,
+.header__contents__nav-list__left__brand__li,
+.header__contents__nav-list__right__login__li,
+.header__contents__nav-list__right__new__li{
+  line-height: 38px;
+}
+.header__contents__nav-list__right__new__li{
+  padding: 0 0 0 16px;
+}// topcss
+
+*{
+  box-sizing: border-box;
+}
+.body{
+  display:block;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.header{
+  padding: 0 60px;
+  &__contents{
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__content{
+      position: relative;
+      display: flex;
+      align-items: center;
+      &__box{
+        padding-bottom: 10px;
+        margin-right: 30px;
+      }
+      &__box a{
+        width: 140px;
+        display: block;
+      }
+      &__box img{
+        width: 100%;
+        vertical-align: bottom;
+      }
+      &__search-box{
+        margin-left: auto;
+        width: 100%;
+        // display: flex;
+        form{
+          width: 100%;
+          margin-bottom: 5px;
+          display: flex;
+        }
+        button{
+          width:36px ;
+          border:0;
+          padding:8px;
+          background-color: #3CCACE;
+          cursor: pointer;
+        }
+        &__input{
+          width: calc(100% - 26px);
+          height: 36px;
+          padding: 0 0 0 5px;
+
+        }
+        &__icon img{
+          width: 100%;
+          vertical-align: bottom;      
+        }
+      }
+    }
+
+    &__nav-list{
+      font-size: 14px;
+      display: flex;
+      padding-bottom: 10px;
+      &__left{
+        position: relative;
+        display: flex;  
+        &__brand{
+          &__li{
+            padding: 0 0 0 16px;
+          }
+        }   
+      }
+      &__left ul{
+        position: relative;
+        display: flex;
+      }
+      &__right {
+        margin-left: 10px;
+        display: flex;
+        list-style: none;
+        &__topic{
+          margin-right: 16px;
+        }
+        &__necessary{
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+}
+
+.header__contents__nav-list__left__category__li,
+.header__contents__nav-list__left__brand__li,
+.header__contents__nav-list__right__topic__li,
+.header__contents__nav-list__right__necessary__li,
+.header__contents__nav-list__right__login__li,
+.header__contents__nav-list__right__new__li{
+  line-height: 38px;
+}
+.header__contents__nav-list__right__new__li{
+  padding: 0 0 0 16px;
+}

@@ -8,6 +8,7 @@ $border-top: 1px solid #AAFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #EEEEEE;
   &__logo {
 
   }
@@ -16,7 +17,7 @@ $border-top: 1px solid #AAFFFF;
 .body{
   background-color: $main-background;
   .buy {
-    max-width: 375px;
+    max-width: 700px;
     margin: 0 auto;
     background-color: $main_color;
     .buy-content {
@@ -30,6 +31,8 @@ $border-top: 1px solid #AAFFFF;
       }
       &__main {
         text-align: center;
+        display: flex;
+        justify-content: center;
         img {
           border-radius: 30px;
         }
@@ -44,8 +47,7 @@ $border-top: 1px solid #AAFFFF;
           &__item-price {
             display: flex;
             justify-content: center;
-            font-weight: 600;
-            font-size: 24px; 
+            margin-left: 30px;
           }
           .main__shopping-free{
             margin-left: 8px;
@@ -55,7 +57,7 @@ $border-top: 1px solid #AAFFFF;
     }
     .price {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       background-color: $main_color;
       padding: 32px 16px;
       border-top: $border-top;
@@ -74,41 +76,54 @@ $border-top: 1px solid #AAFFFF;
       background-color: $main_color;
       padding: 32px 16px;
       border-top: $border-top;
+      display: flex;
+      justify-content: space-around;
       &__inner {
         font-weight: bold;
-        margin-bottom: 5px;
+        margin-left: initial;
         font-size: 20px;
       }
-      .inner-credit {
-        
-        &__brand {
-          img {
-            height: 30px;
-          }
-        }
-        .card {
-          &__title {
-            font-weight: bold;
-          }
-          &__limit {
-            font-weight: bold;
-          }
+      &__change {
+        color: #0095ee;
+      }
+    }
+      
+    .card {
+      &__title {
+        margin-left: 145px;
+      }
+      &__limit {
+        margin-left: 145px;
+      }
+    }
+    .inner-credit {
+    
+      &__brand {
+        img {
+          height: 30px;
+          margin-left: 145px;
         }
       }
     }
+    
     .adress {
       background-color: $main_color;
       padding: 32px 16px;
       border-top: $border-top;
+      display: flex;
+      justify-content: space-around;
       &__post {
         font-weight: bold;
-        margin-bottom: 10px;
-        font-size: 20px;
+        margin-left: 50px;        font-size: 20px;
       }
-      &__name {
-        margin-top :15px;
+      &__change {
+        color: #0095ee;
       }
     }
+    .adress__info {
+      margin-left: 145px;
+    }
+
     .purchase {
       background-color: $main_color;
       padding: 32px 16px;

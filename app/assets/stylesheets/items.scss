@@ -60,9 +60,9 @@ a{
         &__icon img{
           width: 100%;
           vertical-align: bottom;      
+        }
       }
     }
-  }
 
     &__nav-list{
       font-size: 14px;
@@ -231,7 +231,7 @@ a{
   } 
 }
 
-.main__contentsdl{
+.main__content{
   background-image: image-url('bg-topMiddleDl-pict.jpg');
   background-position: bottom right;
   height: 400px;
@@ -338,7 +338,7 @@ background-color: #fff;
 }
 
 .main__picture{
-  padding: 80px 0 0;
+  padding: 80px 0 40px 0;
   background-color: #f8f8f8;
   height: 100%;
 
@@ -349,7 +349,9 @@ background-color: #fff;
     font-weight: bold 
   }
   &__box{
-    padding:1px;
+    padding: 1px;
+    
+
       
     &__head{
       text-align: center;
@@ -363,14 +365,14 @@ background-color: #fff;
       }
     }
     &__lists{
-      width: 1000px;
-      margin: 26px auto;
-      display: flex;
-      justify-content: space-around;
+      width: 100%;
+      
       
     
       &__list{
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        
 
         a{
           display: inline-block;
@@ -477,31 +479,26 @@ background-color: #fff;
   position: relative;
   background-size: cover;
   background-position: center;
-  // margin-top: 50px;
-  // padding-top: 10px;
-
-  &__inner{
+  .inner{
     color: #fff;
     text-align: center;
-
-    h2{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 1.4;
+    &__title{
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
     }
-    P{
-      font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    &__text{
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
-    &__icon{
-      width: 100%;
+    .main__content__btn{
       display: flex;
+      margin: 24px 0 0 0;
       justify-content: center;
-      margin: 20px auto 0;
-
+      
       a{
-      margin-right: 10px;
+        margin-right: 10px;
       }
       img{
         width: 150px;
@@ -509,6 +506,7 @@ background-color: #fff;
     }
   }
 }
+
 .footer{
   padding: 60px 0;
   color: #fff;
@@ -553,7 +551,6 @@ background-color: #fff;
     P{
     font-size: 13px;
     }
-    
   }
 }
 .purchase__btn{
@@ -582,5 +579,4 @@ background-color: #fff;
 .top-main__contents__item-box__image{
   background: white;
   margin: 10px;
-}
-
+  }

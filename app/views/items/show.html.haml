@@ -86,14 +86,16 @@
         = link_to "商品の編集", edit_item_path(@item.id), class: "submit-btn submit-btn--red"
         %p
           or
-        = link_to "出品を再開する","", class: "submit-btn submit-btn--red"
         = link_to "この商品を削除する", item_path, class: "submit-btn submit-btn--gray", method: "DELETE"
-      - elsif @item.sale_status == 1
-        = link_to "購入画面に進む", "#", class: "item__purchase-screen-button"
-      - elsif @item.sale_status == 2
-        = link_to "この商品は公開停止中です", "", class: "submit-btn submit-btn--gray"
-      - else
+      - elsif user_signed_in? && @item.sale_status.nil?
+        = link_to "購入画面に進む", item_buyers_path(@item), class: "item__purchase-screen-button"
+      - elsif user_signed_in? && @item.sale_status.present?
         = link_to "この商品の取引は完了しました", "", class: "submit-btn submit-btn--gray"
+      - else
+        .new_user
+          = link_to "ログインはこちら", new_user_session_path, class: "submit-btn submit-btn--red"
+          = link_to "新規登録はこちら", new_user_registration_path, class: "submit-btn submit-btn--red"
+
 
     .description
       %p.description__inner
@@ -146,6 +148,23 @@
       %h2.title
         = link_to "#{@item.user.nickname}さんのその他の出品", ""
       .content
+        -# - @item.sale_status = nil.each do |item|
+        -#   .item-box
+        -#     = link_to item_path(item.id), class:"other-items__login-user__items__item__link"
+        -#     %figure.image
+        -#       = image_tag item.image_url.find(item_id: item.id), size:"220x220"
+        -#     .body
+        -#       %h3.body__name
+        -#         = @item.name
+        -#       .body__num
+        -#         .body__num__price
+        -#           ¥
+        -#           = @item.price
+        -#         .body__num__heart
+        -#           %i.far.fa-heart
+        -#           %span
+        -#             = rand(1000)
+
         .item-box
           %figure.image
             = image_tag "test2.jpg", size:"220x220"
@@ -161,19 +180,23 @@
                 %span
                   = rand(1000)
 
+
+
     .same-category
       %h2.title
         = link_to "その他の商品", "#"
       .content
-        .item-box
-          %figure.image
-            = image_tag "test3.jpg", size: "220x220"
-          .body
-            %h3.body__name
-              ポーチ1
-            .body__num
-              .body__num__price
-                ¥
-                6000
+        - @item.item_imgs.each do |item|
+          .item-box
+            = link_to item_path(item.id), class:".other-items__same-category__items__item__link" do
+              %figure.image
+                = image_tag "#{item.image_url}", size: "220x220"
+              .body
+                %h3.body__name
+                  = @item.name
+                .body__num
+                  .body__num__price
+                    ¥
+                    = @item.price
 
-= render "footer"
+= render 'footer'

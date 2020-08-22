@@ -6,7 +6,7 @@
           =image_tag "logo.png",alt: "ロゴ"
       .header__contents__content__search-box
         %form
-          %input.header__contents__content__search-box__input{:name => "",:placeholder => "キーワードから探す", :type =>"", :value => ""}/
+          %input.header__contents__content__search-box__input{name: "",:placeholder => "キーワードから探す", :type =>"", :value => ""}/
           %button{type: "submit"}
             .header__contents__content__search-box__icon
               =image_tag "icon-search 1.png",alt: "ロゴ"
@@ -16,7 +16,7 @@
         %ul
           .header__contents__nav-list__left__category
             %li.header__contents__nav-list__left__category__li
-              =link_to category_get_category_children_items_path(@items), class: "categories" do
+              =link_to "#", class: "categories" do
                 カテゴリー
               -# = render partial: 'home/categories_drop'カテゴリ未設定によりエラー表示を防ぐため
           .header__contents__nav-list__left__brand
@@ -35,10 +35,10 @@
             .header__contens__nav-list__right__new
               %li.header__contents__nav-list__right__new__li
 
-                =link_to '#', method: :get, class: 'Button-show' do
+                =link_to user_path(current_user[:id]), method: :get, class: 'Button-show' do
                   マイページ
 
-                -# =link_to user_path(current_user[:id]) do 未然エラー防止
+                -# =link_to user_path(current_user[:id]) do 
                 -#   マイページ     
 
           -else
